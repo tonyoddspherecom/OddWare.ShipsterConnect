@@ -24,15 +24,15 @@ class PluginBeforeOrderView
     public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('oddwareshipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
+        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
-        $message = 'The .pvx xml file will be generated from current order.';
+        $message = 'An export file will be generated, please save it to downloads.';
 
         // add button to order view with, url in button to generate .pvx xml
         $subject->addButton(
             'generateshipxml',
             [
-                'label' => __('Generate .pvx file'),
+                'label' => __('Send to Shipster'),
                 'class' => 'xml-button, ship',
                 'onclick' => "confirmSetLocation('{$message}', '{$url2}')"
             ]
