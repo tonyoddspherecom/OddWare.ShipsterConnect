@@ -6,6 +6,6 @@
         <plugin name="OddWare_ShipsterConnect::pluginBeforeOrderView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeOrderView" />
     </type>
     <type name="\Magento\Shipping\Block\Items">
-        <plugin name="OddWare_ShipsterConnect::pluginBeforeOrderShipmentView" type="OddWare\ShipsterConnect\Ui\Component\Listing\Column\Order\PluginBeforeOrderShipmentView" />
+        <plugin name="OddWare_ShipsterConnect::pluginBeforeOrderShipmentView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeOrderShipmentView" />
     </type>
 </config>
