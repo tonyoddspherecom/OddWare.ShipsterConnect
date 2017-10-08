@@ -1,17 +1,20 @@
 <?php
 /**
- * Created by OddWare.
- * User: tonycheetham
+ * Created by PhpStorm.
+ * User: nataliafrancuz
  * Date: 03.07.2017
  * Time: 10:13
  */
 
-namespace OddWare\ShipsterConnect\Plugin;
+namespace IT\Shipxml\Plugin;
 
 use Magento\Framework\UrlInterface;
 
-class PluginAfterShipping
+class PluginBeforeOrderView
 {
+    /**
+     * @var UrlInterface
+     */
     protected $_urlBuilder;
 
     public function __construct(
@@ -24,7 +27,7 @@ class PluginAfterShipping
     public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('oddwareshipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
+        $url2 = $this->_urlBuilder->getUrl('itshipxml/xml/generate', ['order_id' => $subject->getOrderId()]);
 
         $message = 'The .pvx xml file will be generated from current order.';
 

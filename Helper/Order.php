@@ -1,16 +1,16 @@
 <?php
 /**
- * Created by Oddware.
- * User: tonycheetham
+ * Created by PhpStorm.
+ * User: nataliafrancuz
  * Date: 03.07.2017
  * Time: 11:06
  */
 
-namespace OddWare\ShipsterConnect\Helper;
+namespace IT\Shipxml\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 
-class Shipment extends AbstractHelper
+class Order extends AbstractHelper
 {
 
     public function getUsefulParamsFromOrder($order)
