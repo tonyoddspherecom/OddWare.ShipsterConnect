@@ -24,7 +24,7 @@ class PluginBeforeOrderShipmentView
     }
 
     public function afterPrepareDataSource(
-        \Magento\Catalog\Ui\Component\Listing\Columns\ProductActions $subject,
+        \Magento\Shipping\Ui\Component\Listing\Columns\OrderActions $subject,
         array $dataSource
     ) {
 
