@@ -5,7 +5,7 @@
     <type name="\Magento\Sales\Block\Adminhtml\Order\View">
         <plugin name="OddWare_ShipsterConnect::pluginBeforeOrderView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeOrderView" />
     </type>
-    <type name="\Magento\Shipping\Ui\Component\Listing\Column\ViewAction">
+    <type name="\Magento\Sales\Ui\Component\Listing\Column\ViewAction">
         <plugin name="OddWare_ShipsterConnect::pluginBeforeOrderShipmentView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeOrderShipmentView" />
     </type>
 </config>
