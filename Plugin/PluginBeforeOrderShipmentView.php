@@ -10,7 +10,7 @@ namespace OddWare\ShipsterConnect\Plugin;
 
 use Magento\Framework\UrlInterface;
 
-class PluginBeforeShipmentView
+class PluginBeforeOrderShipmentView
 {
     protected $_urlBuilder;
 
@@ -21,10 +21,10 @@ class PluginBeforeShipmentView
         $this->_urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Shipping\Block\Adminhtml\View $subject)
+    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getShipment()->getOrder()->getId()]);
+        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => "2"]);
 
         $message = 'An export file will be generated, please save it to downloads.';
 
