@@ -260,7 +260,7 @@ class Generate extends Action
             return $result;
         }
 
-        $this->messageManager->addErrorMessage('Something went wrong with your xml.');
+        $this->messageManager->addErrorMessage('Something went wrong with your xml. ID was ' . $orderId);
         $resultRedirect = $this->_redirectResultFactory->create();
         $resultRedirect->setUrl($this->_redirect->getRefererUrl());
         return $resultRedirect;
