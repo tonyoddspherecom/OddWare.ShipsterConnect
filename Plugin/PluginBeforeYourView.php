@@ -10,7 +10,7 @@ namespace OddWare\ShipsterConnect\Plugin;
 
 use Magento\Framework\UrlInterface;
 
-class PluginBeforeOrderView
+class PluginBeforeYourView
 {
     protected $_urlBuilder;
 
