@@ -27,7 +27,26 @@ class PluginBeforeShipmentView
     public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order_Shipment\View $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['orer_id' => $subject->getOrderId()]);
+        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
+
+        $message = 'An export file will be generated, please save it.';
+
+        // add button to order view with, url in button to generate .pvx xml
+        $subject->addButton(
+            'generateshipxml',
+            [
+                'label' => __('Send to Shipster'),
+                'class' => 'xml-button, ship',
+                'onclick' => "confirmSetLocation('{$message}', '{$url2}')"
+            ]
+        );
+
+    }
+
+    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $subject)
+    {
+
+        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
         $message = 'An export file will be generated, please save it.';
 

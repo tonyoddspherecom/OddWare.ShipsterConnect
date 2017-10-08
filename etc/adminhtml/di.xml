@@ -2,4 +2,7 @@
     <type name="\Magento\Sales\Block\Adminhtml\Order_Shipment\View">
         <plugin name="OddWare_ShipsterConnect::pluginBeforeShipmentView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeShipmentView" />
     </type>
+    <type name="\Magento\Sales\Block\Adminhtml\Order\View">
+        <plugin name="OddWare_ShipsterConnect::pluginBeforeShipmentView" type="OddWare\ShipsterConnect\Plugin\PluginBeforeShipmentView" />
+    </type>
 </config>
