@@ -21,7 +21,7 @@ class PluginBeforeOrderShipmentView
         $this->_urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Shipping\Block\Items $subject)
+    public function beforeSetLayout(\Magento\Shipping\Block\Adminhtml $subject)
     {
 		print('This worked!');
         //$url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
