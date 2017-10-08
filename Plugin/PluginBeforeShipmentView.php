@@ -25,7 +25,7 @@ class PluginBeforeShipmentView
     {
 
         $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getShipment()->getOrder()->getOrderId()]);
-
+Print_r($url2);
         $message = 'An export file will be generated, please save it to downloads.';
 
         // add button to order view with, url in button to generate .pvx xml
