@@ -8,7 +8,7 @@
 
 namespace OddWare\ShipsterConnect\Ui\Component\Listing\Column\Order;
 
-class PrintAction extends Column {
+class PluginBeforeOrderShipmentView extends Column {
 
     public function prepareDataSource(array $dataSource) {
         if (isset($dataSource['data']['items'])) {
