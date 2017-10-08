@@ -21,10 +21,10 @@ class PluginAfterShipping
         $this->_urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Shipment\View $subject)
+    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('itshipxml/xml/generate', ['order_id' => $subject->getOrderId()]);
+        $url2 = $this->_urlBuilder->getUrl('oddwareshipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
         $message = 'The .pvx xml file will be generated from current order.';
 
