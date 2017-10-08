@@ -23,11 +23,8 @@ class PluginBeforeOrderShipmentView
         $this->urlBuilder = $urlBuilder;
     }
 
-    public function afterPrepareDataSource(
-        \Magento\Shipping\Ui\Component\Listing\Columns\OrderActions $subject,
-        array $dataSource
-    ) {
-
+    public function afterPrepareDataSource(\Magento\Shipping\Ui\Component\Listing\Columns\ViewAction $subject, array $dataSource)
+    {
         if (isset($dataSource['data']['items'])) {
             $storeId = $this->context->getFilterParam('store_id');
 
