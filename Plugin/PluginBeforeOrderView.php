@@ -10,7 +10,7 @@ namespace OddWare\ShipsterConnect\Plugin;
 
 use Magento\Framework\UrlInterface;
 
-class PluginBeforeShipmentView
+class PluginBeforeOrderView
 {
     protected $_urlBuilder;
 
@@ -21,18 +21,18 @@ class PluginBeforeShipmentView
         $this->_urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order_Shipment\View $subject)
+    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\View $subject)
     {
 
-        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
+        $url2 = $this->_urlBuilder->getUrl('oddwareshipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
-        $message = 'An export file will be generated, please save it.';
+        $message = 'The .pvx xml file will be generated from current order.';
 
         // add button to order view with, url in button to generate .pvx xml
         $subject->addButton(
             'generateshipxml',
             [
-                'label' => __('Send to Shipster'),
+                'label' => __('Generate .pvx file'),
                 'class' => 'xml-button, ship',
                 'onclick' => "confirmSetLocation('{$message}', '{$url2}')"
             ]
