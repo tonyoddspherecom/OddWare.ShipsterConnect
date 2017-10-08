@@ -5,10 +5,8 @@
  * Date: 03.07.2017
  * Time: 10:13
  */
-
+\Magento\Sales\Block\Items\AbstractItems
 namespace OddWare\ShipsterConnect\Plugin;
-
-use Magento\Framework\UrlInterface;
 
 class PluginBeforeOrderShipmentView
 {
@@ -23,7 +21,7 @@ class PluginBeforeOrderShipmentView
         $this->urlBuilder = $urlBuilder;
     }
 
-    public function afterPrepareDataSource(\Magento\Shipping\Ui\Component\Listing\Columns\ViewAction $subject, array $dataSource)
+    public function afterPrepareDataSource(\Magento\Shipping\Ui\Component\Listing\Column\ViewAction $subject, array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
             $storeId = $this->context->getFilterParam('store_id');
