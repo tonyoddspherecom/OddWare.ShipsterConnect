@@ -21,10 +21,10 @@ class PluginBeforeShipmentView
         $this->_urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Sales\Block\Adminhtml\Order\Shipment\View $subject)
+    public function beforeSetLayout(\Magento\Shipping\Block\Adminhtml\Order\View $subject)
     {
-		error_log(print_r($subject, 1));
-        $url2 = 'test';
+
+        $url2 = $this->_urlBuilder->getUrl('oddwareshipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
         $message = 'An export file will be generated, please save it.';
 
