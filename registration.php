@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'IT_Shipxml',
+    'OddWare_ShipsterConnect',
     __DIR__
 );

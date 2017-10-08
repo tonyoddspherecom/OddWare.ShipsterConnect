@@ -6,7 +6,7 @@
  * Time: 11:06
  */
 
-namespace IT\Shipxml\Helper;
+namespace OddWare\ShipsterConnect\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 

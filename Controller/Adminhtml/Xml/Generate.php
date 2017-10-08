@@ -1,6 +1,6 @@
 <?php
 
-namespace IT\Shipxml\Controller\Adminhtml\Xml;
+namespace OddWare\ShipsterConnect\Controller\Adminhtml\Xml;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
