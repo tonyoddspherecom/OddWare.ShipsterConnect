@@ -24,7 +24,7 @@ class PluginBeforeOrderShipmentView
     public function beforeSetLayout(\Magento\Shipping\Block\Adminhtml $subject)
     {
 		print('This worked!');
-        //$url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
+        $url2 = 'Hello!';//$this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getOrderId()]);
 
         $message = 'An export file will be generated, please save it to downloads.';
 

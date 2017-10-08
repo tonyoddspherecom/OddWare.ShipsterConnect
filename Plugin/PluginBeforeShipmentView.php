@@ -12,17 +12,46 @@ use Magento\Framework\UrlInterface;
 
 class PluginBeforeShipmentView
 {
-    protected $_urlBuilder;
-
+    protected $context;
+    protected $urlBuilder;
     public function __construct(
-        UrlInterface $urlBuilder
+        \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
+        \Magento\Framework\UrlInterface $urlBuilder
     )
     {
-        $this->_urlBuilder = $urlBuilder;
+        $this->context = $context;
+        $this->urlBuilder = $urlBuilder;
     }
 
-    public function beforeSetLayout(\Magento\Shipping\Block\Adminhtml\View $subject)
-    {
+    public function afterPrepareDataSource(
+        \Magento\Catalog\Ui\Component\Listing\Columns\ProductActions $subject,
+        array $dataSource
+    ) {
+
+        if (isset($dataSource['data']['items'])) {
+            $storeId = $this->context->getFilterParam('store_id');
+
+            foreach ($dataSource['data']['items'] as &$item) {
+                $item[$subject->getData('name')]['do_something'] = [
+                    'href' => $this->urlBuilder->getUrl(
+                        'catalog/product/do_something',
+                        ['id' => $item['entity_id'], 'store' => $storeId]
+                    ),
+                    'label' => __('Do Something'),
+                    'hidden' => false,
+                ];
+                $item[$subject->getData('name')]['do_something_else'] = [
+                    'href' => $this->urlBuilder->getUrl(
+                        'catalog/product/do_something_else',
+                        ['id' => $item['entity_id'], 'store' => $storeId]
+                    ),
+                    'label' => __('Do Something else'),
+                    'hidden' => false,
+                ];
+            }
+        }
+
+        return $dataSource;
 
         $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getShipment()->getOrder()->getId()]);
 
@@ -37,6 +66,5 @@ class PluginBeforeShipmentView
                 'onclick' => "confirmSetLocation('{$message}', '{$url2}')"
             ]
         );
-
     }
 }
