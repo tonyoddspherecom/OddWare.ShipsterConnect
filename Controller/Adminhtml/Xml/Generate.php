@@ -116,9 +116,6 @@ class Generate extends Action
                 $xmlItem->addChild('BuyPrice', $item->getData('price'));
                 $xmlItem->addChild('RetailPrice', $item->getData('price'));
                 $xmlItem->addChild('Weight', $item->getData('weight'));
-				$xmlItem->addChild('Width', '');
-				$xmlItem->addChild('Depth', '');
-				$xmlItem->addChild('Height', '');
 
                 if ($categoryId) {
                     $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -218,9 +215,6 @@ class Generate extends Action
                         $xmlItem->addChild('BuyPrice', $item->getData('price'));
                         $xmlItem->addChild('RetailPrice', $item->getData('price'));
                         $xmlItem->addChild('Weight', $item->getData('weight'));
-                        $xmlItem->addChild('Width', '');
-                        $xmlItem->addChild('Depth', '');
-                        $xmlItem->addChild('Height', '');
 
                         if ($categoryId) {
                             $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
