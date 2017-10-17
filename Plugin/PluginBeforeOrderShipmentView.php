@@ -21,45 +21,21 @@ class PluginBeforeOrderShipmentView
         $this->urlBuilder = $urlBuilder;
     }
 
-    public function afterPrepareDataSource(\Magento\Shipping\Ui\Component\Listing\Column\ViewAction $subject, array $dataSource)
+    public function afterPrepareDataSource(\Magento\Sales\Ui\Component\Listing\Column\ViewAction $subject, array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
             $storeId = $this->context->getFilterParam('store_id');
 
             foreach ($dataSource['data']['items'] as &$item) {
-                $item[$subject->getData('name')]['do_something'] = [
-                    'href' => $this->urlBuilder->getUrl(
-                        'catalog/product/do_something',
-                        ['id' => $item['entity_id'], 'store' => $storeId]
-                    ),
-                    'label' => __('Do Something'),
-                    'hidden' => false,
-                ];
-                $item[$subject->getData('name')]['do_something_else'] = [
-                    'href' => $this->urlBuilder->getUrl(
-                        'catalog/product/do_something_else',
-                        ['id' => $item['entity_id'], 'store' => $storeId]
-                    ),
-                    'label' => __('Do Something else'),
+            	$url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getShipment()->getOrder()->getId()]);
+            	$item[$subject->getData('name')]['Send To Shipster'] = [
+                    'href' => $url2,
+                    'label' => __('Send To Shipster'),
                     'hidden' => false,
                 ];
             }
         }
 
         return $dataSource;
-
-        $url2 = $this->_urlBuilder->getUrl('shipsterconnect/xml/generate', ['order_id' => $subject->getShipment()->getOrder()->getId()]);
-
-        $message = 'An export file will be generated, please save it to downloads.';
-
-        // add button to order view with, url in button to generate .pvx xml
-        $subject->addButton(
-            'generateshipxml',
-            [
-                'label' => __('Send to Shipster'),
-                'class' => 'xml-button, ship',
-                'onclick' => "confirmSetLocation('{$message}', '{$url2}')"
-            ]
-        );
     }
 }
